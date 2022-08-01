@@ -50,11 +50,29 @@ p + geom_line()
 p + geom_point() + geom_line()
 p + geom_line() + geom_point()
 
+# *** Overriding Aesthetics ***
+q <- ggplot(data = movies,
+            aes(
+              x = CriticRating,
+              y = AudienceRatings,
+              color = Genre,
+              size = BudgetMillions
+            ))
+# Add geom layer
+q + geom_point()
+# *Overriding aes*
 
+# ex1
+q + geom_point(aes(size = CriticRating))
 
+# ex2
+q + geom_point(aes(color = BudgetMillions))
 
+# q is unchanged
+q + geom_point()
 
+# ex4
+q + geom_point(aes(x = BudgetMillions)) + xlab("Budget Millions $$$")
 
-
-
-
+# ex5 - reduce line size
+q + geom_line(size = 1) + geom_point()
