@@ -30,3 +30,31 @@ ggplot(data = movies,
        )) + geom_point()
 
 # ***Geometry***
+p <- ggplot(data = movies,
+            aes(
+              x = CriticRating,
+              y = AudienceRatings,
+              color = Genre,
+              size = BudgetMillions
+            ))
+p
+# *Plotting with layers*
+
+# point
+p + geom_point()
+
+# line
+p + geom_line()
+
+# multiple layers
+p + geom_point() + geom_line()
+p + geom_line() + geom_point()
+
+
+
+
+
+
+
+
+
