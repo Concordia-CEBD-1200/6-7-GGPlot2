@@ -96,3 +96,19 @@ r + geom_point(aes(size = BudgetMillions))
 r + geom_point(size = 10)
 # error
 r + geom_point(aes(size = 10))
+
+# ***Histograms and Density Charts***
+
+s <- ggplot(data = movies, aes(x = BudgetMillions))
+s + geom_histogram(binwidth = 10)
+
+# add colour
+s + geom_histogram(binwidth = 10, aes(fill = Genre))
+# add a border
+s + geom_histogram(binwidth = 10, aes(fill = Genre), color="Black")
+
+# very rarely used
+s + geom_density(aes(fill = Genre))
+s + geom_density(aes(fill = Genre), position = "stack")
+
+
