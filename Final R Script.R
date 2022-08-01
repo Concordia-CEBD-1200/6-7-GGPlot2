@@ -105,10 +105,33 @@ s + geom_histogram(binwidth = 10)
 # add colour
 s + geom_histogram(binwidth = 10, aes(fill = Genre))
 # add a border
-s + geom_histogram(binwidth = 10, aes(fill = Genre), color="Black")
+s + geom_histogram(binwidth = 10, aes(fill = Genre), color = "Black")
 
 # very rarely used
 s + geom_density(aes(fill = Genre))
 s + geom_density(aes(fill = Genre), position = "stack")
+
+
+# ***Starting Layer Tips***
+t <- ggplot(data = movies, aes(x = AudienceRatings))
+t + geom_histogram(binwidth = 10,
+                   fill = "White",
+                   color = "blue")
+
+# Another way
+t <- ggplot(data = movies)
+t + geom_histogram(
+  binwidth = 10,
+  aes(x = AudienceRatings),
+  fill = "White",
+  color = "blue"
+)
+
+t + geom_histogram(
+  binwidth = 10,
+  aes(x = CriticRating),
+  fill = "White",
+  color = "blue"
+)
 
 
