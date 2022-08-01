@@ -167,7 +167,8 @@ v + geom_histogram(binwidth = 10, aes(fill = Genre), color = "Black") +
   facet_grid(Genre ~ ., scales = "free")
 
 # scatterplots
-w <- ggplot(data = movies, aes(x = CriticRating, y = AudienceRatings, color = Genre))
+w <-
+  ggplot(data = movies, aes(x = CriticRating, y = AudienceRatings, color = Genre))
 w + geom_point(size = 3)
 
 # facets
@@ -177,4 +178,34 @@ w + geom_point(size = 3) + facet_grid(. ~ Year)
 w + geom_point(aes(size = BudgetMillions))  +
   geom_smooth() +
   facet_grid(Genre ~ Year)
+
+# ***Coordinates***
+# limits
+
+m <-
+  ggplot(data = movies,
+         aes(
+           x = CriticRating,
+           y = AudienceRatings,
+           size = BudgetMillions,
+           color = Genre
+         ))
+m + geom_point()
+
+m + geom_point() + xlim(50, 100) + ylim(50, 100)
+
+# won't always work well
+
+n <- ggplot(data = movies, aes(x = BudgetMillions))
+n + geom_histogram(binwidth = 10, aes(fill = Genre), color = "Black")
+n + geom_histogram(binwidth = 10, aes(fill = Genre), color = "Black") + ylim(0, 50)
+
+# zoom
+
+n + geom_histogram(binwidth = 10, aes(fill = Genre), color = "Black") + 
+  coord_cartesian(ylim = c(0, 50))
+
+
+
+
 
