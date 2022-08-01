@@ -76,3 +76,23 @@ q + geom_point(aes(x = BudgetMillions)) + xlab("Budget Millions $$$")
 
 # ex5 - reduce line size
 q + geom_line(size = 1) + geom_point()
+
+# ***Mapping vs Setting***
+
+r <-
+  ggplot(data = movies, aes(x = CriticRating, y = AudienceRatings))
+r + geom_point()
+
+# Add color - 1. Mapping
+r + geom_point(aes(color = Genre))
+# Add color - 1. Setting
+r + geom_point(color = "DarkGreen")
+# error
+# r + geom_point(aes(color = "DarkGreen"))
+
+# 1. Size - Mapping
+r + geom_point(aes(size = BudgetMillions))
+# 2. Size - Setting
+r + geom_point(size = 10)
+# error
+r + geom_point(aes(size = 10))
