@@ -154,3 +154,27 @@ u + geom_boxplot(size = 1.2) + geom_point()
 # tip / hack
 u + geom_boxplot(size = 1.2) + geom_jitter()
 u + geom_jitter() + geom_boxplot(size = 1.2, alpha = 0.5)
+
+
+# ***Using Facets***
+
+v <- ggplot(data = movies, aes(x = BudgetMillions))
+v + geom_histogram(binwidth = 10)
+v + geom_histogram(binwidth = 10, aes(fill = Genre), color = "Black")
+
+# facets
+v + geom_histogram(binwidth = 10, aes(fill = Genre), color = "Black") +
+  facet_grid(Genre ~ ., scales = "free")
+
+# scatterplots
+w <- ggplot(data = movies, aes(x = CriticRating, y = AudienceRatings, color = Genre))
+w + geom_point(size = 3)
+
+# facets
+w + geom_point(size = 3) + facet_grid(Genre ~ .)
+w + geom_point(size = 3) + facet_grid(. ~ Year)
+
+w + geom_point(aes(size = BudgetMillions))  +
+  geom_smooth() +
+  facet_grid(Genre ~ Year)
+
