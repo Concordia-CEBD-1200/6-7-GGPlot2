@@ -174,6 +174,7 @@ w + geom_point(size = 3)
 # facets
 w + geom_point(size = 3) + facet_grid(Genre ~ .)
 w + geom_point(size = 3) + facet_grid(. ~ Year)
+w + geom_point(size = 3) + facet_grid(Genre ~ Year) + geom_smooth()
 
 w + geom_point(aes(size = BudgetMillions))  +
   geom_smooth() +
